@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+            background-color: white;
+        }
+        div.grid{
+
+            display: grid;
+            grid-template-areas:
+            "header"
+            "aside1"
+            "main"
+            "aside2"
+            "footer";
+        }
+
+        div.header{
+            text-align: center;
+            grid-area: header;
+            background-color: #dd0000;
+        }
+
+        div.main{
+            text-align: center;
+            grid-area: main;
+            background-color: #35404f;
+            padding: 30px;
+        }
+        div.aside1{
+            grid-area: aside1;
+            background-color: #b89115;
+        }
+        div.aside2{
+            grid-area: aside2;
+            background-color: #eb7260;
+        }
+        div.footer{
+            grid-area: footer;
+            background-color: midnightblue;
+        }
+
+        @media (min-width: 500px){
+            div.grid{
+                grid-gap: 3px;
+                grid-template-columns: 1fr 400px;
+                grid-template-areas:
+            "header     header"
+            "aside1     main"
+            "aside2     main"
+            "footer     footer";
+            }
+        }
+
+
+            @media (min-width: 750px) {
+                div.grid{
+                    grid-template-columns: 0.8fr 3fr 0.8fr ;
+                    grid-template-areas:
+                            "aside1 header  aside2"
+                            "aside1 main    aside2"
+                            "aside1 main    aside2"
+                            "footer footer footer";
+
+                }
+
+        }
+    </style>
+</head>
+<body>
+<div class="grid">
+    <div class="header">
+        <h1>Header</h1>
+    </div>
+    <div class="main">
+        <h1>Main</h1>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, animi aut, beatae dolores doloribus dolorum harum labore laboriosam, neque nisi nostrum officia pariatur possimus quia rem saepe sed ullam veniam!
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquid aut cumque ducimus molestiae officiis, quis repellendus tenetur. Beatae eum expedita fugiat illum ipsa iste iure pariatur reprehenderit, totam voluptatibus!
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet consequatur cumque delectus deleniti eligendi, esse eveniet fugit molestiae odio provident rem repudiandae sed sequi sunt velit vero voluptas voluptatem voluptatum?
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda culpa cupiditate doloribus ex exercitationem, facilis illum iste. Aliquam aperiam delectus doloribus eveniet quos ratione tempore! Dolor magnam maxime soluta totam.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consectetur consequuntur dolores eius excepturi inventore ipsum laborum molestiae nisi, odio, quaerat quibusdam, quis quos repellat sed similique ut veniam voluptatum.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus consequuntur corporis debitis distinctio ea, neque odio optio quam qui quod, repudiandae rerum saepe sequi tenetur unde vero voluptatibus. Accusamus, doloribus!
+    </div>
+    <div class="aside1">
+        f
+    </div>
+    <div class="aside2">
+        f
+    </div>
+    <div class="footer">
+        v
+    </div>
+</div>
+</body>
+</html>

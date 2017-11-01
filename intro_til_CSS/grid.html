@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        body{
+            margin: 0;
+        }
+
+        div.grid{
+            display: grid;
+            grid-template-areas:
+                    "header"
+                    "nav"
+                    "main"
+                    "aside1"
+                    "aside2"
+                    "footer";
+        }
+
+        div.header{
+            background-color: #35404f;
+            grid-area: header;
+        }
+        div.nav{
+            background-color: #329632;
+            grid-area: nav;
+        }
+        div.main{
+            background-color: #333333;
+            grid-area: main;
+        }
+        div.aside1{
+            background-color: #dd0000;
+            grid-area: aside1;
+        }
+        div.aside2{
+            background-color: darkgoldenrod;
+            grid-area: aside2;
+        }
+        div.footer{
+            background-color: chartreuse;
+            grid-area: footer;
+        }
+
+        @media (min-width: 500px) {
+
+            div.grid{
+                grid-template-columns: 1fr 3fr;
+                grid-template-areas:
+                        "header    header"
+                        "nav       nav"
+                        "aside1    main"
+                        "aside2    footer"
+
+            }
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+<div class="grid">
+
+    <div class="header">
+        <h1>Grid-side</h1>
+    </div>
+
+    <div class="nav">
+        Meny
+    </div>
+
+    <div class="main">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad aliquid animi aperiam cupiditate dolor dolorem
+            ea ex fugiat illo in inventore libero molestiae, officiis omnis, ratione reiciendis reprehenderit
+            repudiandae!</p>
+        <p>A aspernatur at consequatur deleniti dolor dolorem facere facilis id incidunt ipsum, laboriosam maxime nam
+            nisi placeat quaerat quas repellat repudiandae totam. Architecto delectus illo ipsum, magni numquam
+            temporibus voluptatem!</p>
+    </div>
+
+    <div class="aside1">
+    j
+    </div>
+
+    <div class="aside2">
+    k
+    </div>
+
+    <div class="footer">
+    j
+    </div>
+
+</div>
+
+
+
+
+</body>
+</html>
