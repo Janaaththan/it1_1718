@@ -11,8 +11,106 @@
 <h1>IT-1 : Janaaththan</h1>
 <a href="#" class="velkommen"></a>
 <h2>Velkommen</h2>
+<img class="bilde1" src="oppgaver_fra_boka/Bilder/ut9yu925t.png" alt="" width="320" height="200">
 
-intro til html
-<a href="intro_til_html/lister.html">Lister</a>
+<div class="topp">
+<h3>Oppgaver fra bok</h3>
+<ul>
+    <li><a href="oppgaver_fra_boka/meg.html">Meg</a></li>
+    <li><a href="oppgaver_fra_boka/oppgave_2-3.html">Kapittel 2-3</a></li>
+    <li><a href="oppgaver_fra_boka/oppgave_5.1-7.html">Kapittel 5-7</a></li>
+    <li><a href="oppgaver_fra_boka/oppgave_kap.7.html">Kapittel 7</a></li>
+    <li><a href="oppgaver_fra_boka/oppgave_kap_8.html">Kapittel 8</a></li>
+</ul>
+</div>
+
+<div class="mid1">
+<h3>Intro til HTML</h3>
+<ul>
+    <li><a href="intro_til_html/Intro/Index.html">Intro</a></li>
+    <li><a href="intro_til_html/table.html">Table</a></li>
+    <li><a href="intro_til_html/lister.html">Lister</a></li>
+    <li><a href="intro_til_html/skjemaer/form.html">Form</a></li>
+    <li><a href="intro_til_html/menyer/L_meny.html">Lodrett Meny</a></li>
+    <li><a href="intro_til_html/menyer/V_meny.html">Vannrett Meny</a></li>
+</ul>
+</div>
+
+<div class="mid2">
+<h3>Intro til CSS</h3>
+<ul>
+    <li><a href="intro_til_CSS/grid.html">Grid 1</a></li>
+    <li><a href="intro_til_CSS/grid2.html">Grid 2</a></li>
+    <li><a href="intro_til_CSS/grid3.html">Grid 3</a></li>
+</ul>
+</div>
+
+<div class="bunn">
+<h3>Prøver - bildebehandling, CSS og HTML</h3>
+<ul>
+    <li><a href="øveprøve_bilder_og_html/index.html">Øveprøve</a></li>
+    <li><a href="prøve1_bildebehandling_css_og_html/index.html">Prøve</a></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Oppgaver fra bok</button>
+        <div id="myDropdown" class="dropdown-content">
+            <a href="oppgaver_fra_boka/meg.html">Meg</a>
+            <a href="oppgaver_fra_boka/oppgave_2-3.html">Kapittel 2-3</a>
+            <a href="oppgaver_fra_boka/oppgave_5.1-7.html">Kapittel 5-7</a>
+            <a href="oppgaver_fra_boka/oppgave_kap.7.html">Kapittel 7</a>
+            <a href="oppgaver_fra_boka/oppgave_kap_8.html">Kapittel 8</a>
+        </div>
+
+
+</div>
+<script>
+    function myFunction() {
+        document.getElementById("myDropdown")
+            .classList.toggle("show");
+    }
+    window.onclick = function (event) {
+        if (!event.target.matches(`.dropbtn`))
+        {
+
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+
+</script>
 </body>
 </html>
