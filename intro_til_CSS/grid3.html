@@ -3,96 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        body{
-            margin: 0;
-            background-color: white;
-        }
-        div.grid{
-
-            display: grid;
-            grid-template-areas:
-            "header"
-            "aside1"
-            "main"
-            "aside2"
-            "footer";
-        }
-
-        div.header{
-            text-align: center;
-            grid-area: header;
-            background-color: #dd0000;
-        }
-
-        div.main{
-            text-align: center;
-            grid-area: main;
-            background-color: #35404f;
-            padding: 30px;
-        }
-        div.aside1{
-            grid-area: aside1;
-            background-color: #b89115;
-        }
-        div.aside2{
-            grid-area: aside2;
-            background-color: #eb7260;
-        }
-        div.footer{
-            grid-area: footer;
-            background-color: midnightblue;
-        }
-
-        @media (min-width: 500px){
-            div.grid{
-                grid-gap: 3px;
-                grid-template-columns: 1fr 400px;
-                grid-template-areas:
-            "header     header"
-            "aside1     main"
-            "aside2     main"
-            "footer     footer";
-            }
-        }
-
-
-            @media (min-width: 750px) {
-                div.grid{
-                    grid-template-columns: 0.8fr 3fr 0.8fr ;
-                    grid-template-areas:
-                            "aside1 header  aside2"
-                            "aside1 main    aside2"
-                            "aside1 main    aside2"
-                            "footer footer footer";
-
-                }
-
-        }
-    </style>
+    <link rel="stylesheet" href="css/grid3.css">
 </head>
 <body>
 <div class="grid">
     <div class="header">
         <h1>Header</h1>
     </div>
+    <div class="meny">
+        <ul class="topnav">
+            <li><a class="active" href="#home">Home</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#contact">Contact</a></li>
+
+        </ul>
+
+    </div>
     <div class="main">
         <h1>Main</h1>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, animi aut, beatae dolores doloribus dolorum harum labore laboriosam, neque nisi nostrum officia pariatur possimus quia rem saepe sed ullam veniam!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquid aut cumque ducimus molestiae officiis, quis repellendus tenetur. Beatae eum expedita fugiat illum ipsa iste iure pariatur reprehenderit, totam voluptatibus!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet consequatur cumque delectus deleniti eligendi, esse eveniet fugit molestiae odio provident rem repudiandae sed sequi sunt velit vero voluptas voluptatem voluptatum?
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda culpa cupiditate doloribus ex exercitationem, facilis illum iste. Aliquam aperiam delectus doloribus eveniet quos ratione tempore! Dolor magnam maxime soluta totam.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consectetur consequuntur dolores eius excepturi inventore ipsum laborum molestiae nisi, odio, quaerat quibusdam, quis quos repellat sed similique ut veniam voluptatum.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus consequuntur corporis debitis distinctio ea, neque odio optio quam qui quod, repudiandae rerum saepe sequi tenetur unde vero voluptatibus. Accusamus, doloribus!
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, amet dolores eligendi molestias nobis optio
+            quos temporibus vel. Eaque enim magnam, magni maxime sit veniam. Adipisci autem esse ipsa reprehenderit.
+        </p>
+        <p>Alias aliquid amet deserunt harum magni odio perspiciatis quam quidem quod repudiandae. Aperiam cum
+            delectus distinctio doloribus eligendi eveniet laudantium minus officiis optio praesentium rem reprehenderit
+            sint, unde voluptas voluptate?
+        </p>
+        <p>Aliquam asperiores fugit hic labore laboriosam vel! Dolor doloribus fugiat libero maxime odio quo! Magni
+            quia sapiente tenetur totam velit! Corporis dolore eaque quam quis tempora vero? Accusamus, porro, tenetur.
+        </p>
+        <p>Commodi maiores nisi pariatur sequi? A aliquam aspernatur commodi distinctio, dolores ducimus error,
+            expedita, facere ipsum laboriosam laborum modi molestias quam quibusdam repudiandae sed veritatis voluptas
+            voluptatem! Animi, iure, voluptate!
+        </p>
+        <p>Consequatur consequuntur cumque delectus eveniet porro praesentium quia quos repellendus totam voluptas?
+            Aspernatur facilis libero maxime perspiciatis ut! A beatae consequatur exercitationem facere ipsam nostrum,
+            pariatur praesentium suscipit tempore? Inventore!
+        </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis et fugit illum laboriosam natus odio
+            omnis possimus quae reiciendis tempora ut, veritatis. Accusamus, accusantium assumenda dolore eligendi
+            eveniet labore placeat!
+        </p>
+        <p>Maiores, sequi, tempora! Accusamus ad aliquam animi assumenda delectus ducimus eaque exercitationem ipsa
+            laboriosam maiores molestias porro provident quibusdam ratione, repellat ut vel vitae! Cum eius nulla
+            tempore ut voluptatibus!
+        </p>
+        <p>Aut commodi dicta dignissimos ea error esse eveniet exercitationem explicabo fuga laboriosam maiores, neque
+            non nostrum numquam odio optio pariatur ratione reiciendis repellendus reprehenderit saepe sapiente sunt
+            tempora ut veniam?
+        </p>
+        <p>Atque aut, consequatur cum, debitis delectus earum eos hic illum ipsum laboriosam laborum modi molestias
+            neque praesentium quam quibusdam quod ratione recusandae reiciendis repellendus sequi similique suscipit
+            tempore velit voluptatum.
+        </p>
+        <p>Aliquid aperiam asperiores delectus est illum iusto minus necessitatibus qui sequi! Accusantium aliquid
+            commodi corporis dolor dolorem esse, id illo, laboriosam laudantium pariatur perferendis quam quas quo rem
+            reprehenderit voluptatum.
+        </p>
     </div>
     <div class="aside1">
         f
     </div>
     <div class="aside2">
-        f
+        <img class= aside2 src="https://sep.yimg.com/yf/common/1.0/ysb-logo.png" alt="">
     </div>
     <div class="footer">
-        v
+        <img  class=footer src="http://photoblogstop.com/wp-content/uploads/2012/07/Sierra_HDR_Panorama_DFX8048_2280x819_Q40_wm_mini.jpg" alt="">
     </div>
 </div>
 </body>
