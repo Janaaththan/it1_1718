@@ -59,11 +59,12 @@ div.aside1{
     background-color: #B8BBFF;
 }
 div.aside2{
-    grid-area: aside2;
+
     background-color: #1AFFD5;
     text-align: center;
 }
 img.aside2{
+    grid-area: aside2;
     height: 50px;
 
 }
