@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+<h1>Register</h1>
+
+
+<input type="text" class="navn" placeholder="Navn"><br>
+<input type="text" class="bilnummer" placeholder="Bilnummer"><br>
+<input type="number" class="hastighet" placeholder="Hastighet"><br><br>
+<button class="klikk">Send inn</button>
+
+<div class="tabell">
+    <h1>Topp 10</h1>
+    <table class="value" border="1 px">
+        <tr>
+        <th>Navn</th>
+        <th>Bilnummer</th>
+        <th>Hastighet</th>
+        </tr>
+        <tbody class="Tdata"></tbody>
+    </table>
+</div>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
