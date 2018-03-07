@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alle filmer</title>
+    <link rel="stylesheet" href="stil.css">
+</head>
+<body>
+<h1>Alle filmer</h1>
+
+<div class="skjemapakker">
+    <div class="skjemainfo">
+        <nav>
+            <ul>
+                <li><a href="reg.html">Hovedside</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="skjemaform">
+        <div class="liste"></div>
+    </div>
+</div>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-firestore.js"></script>
+
+<script> firebase.initializeApp({
+    apiKey: "AIzaSyAcsjUL51j03Bot82DhFyXLNDlVJTUxxWw",
+    authDomain: "firestore-daeb3.firebaseapp.com",
+    databaseURL: "https://firestore-daeb3.firebaseio.com",
+    projectId: "firestore-daeb3",
+    storageBucket: "firestore-daeb3.appspot.com",
+    messagingSenderId: "435046273918"
+});
+var     db      =   firebase.firestore();
+var     listeE  =   document.querySelector('.liste');
+var     mappe   =   db.collection("Film_db");
+var     Omappe  =   mappe.orderBy("title", "asc");
+
+Omappe.onSnapshot(function(data){
+    listeE.innerHTML = "";
+    var documenter = data.docs;
+    for(var x in documenter){
+        listeE.innerHTML += "<li>" + documenter[x].data().title + ":  " +  documenter[x].data().rating + "</li>";}
+});
+
+
+</script>
+</body>
+</html>

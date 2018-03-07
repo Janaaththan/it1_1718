@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fra form til firestore</title>
+</head>
+<body>
+
+<form id="brukerskjema">
+    <input id="inputFornavn" type="text" placeholder="Fornavn" required>
+    <input id="inputEtternavn" type="text" placeholder="Etternavn" required>
+    <button type="submit">Legg til kunde</button>
+</form>
+
+<table border="1px">
+    <thead>
+        <tr>
+            <th>Fornavn</th>
+            <th>Etternavn</th>
+        </tr>
+    </thead>
+    <tbody id="brukertabell"></tbody>
+</table>
+
+
+
+
+
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-firestore.js"></script>
+<script>
+    firebase.initializeApp({
+        apiKey: "AIzaSyAcsjUL51j03Bot82DhFyXLNDlVJTUxxWw",
+        authDomain: "firestore-daeb3.firebaseapp.com",
+        databaseURL: "https://firestore-daeb3.firebaseio.com",
+        projectId: "firestore-daeb3",
+        storageBucket: "firestore-daeb3.appspot.com",
+        messagingSenderId: "435046273918"
+    });
+
+    let db              =    firebase.firestore();
+    let brukere         =    db.collection('brukere');
+    let brukerskjema    =    document.querySelector('#brukerskjema');
+    let brukertabell    =    document.querySelector('#brukertabell');
+    let inputFornavn    =    document.querySelector('#inputFornavn');
+    let inputEtternavn  =    document.querySelector('#inputEtternavn');
+
+    //Kaller på funksjonen registrermBruker når skjemaet sendes inn
+    brukerskjema.onsubmit = registrerBruker;
+
+    //Legger til ny bruker i Firestore-databasen
+    function registrerBruker(evt) {
+        evt.preventDefault();
+        brukere.add({
+            fornavn:    inputFornavn.value,
+            etternavn:  inputEtternavn.value
+        });
+        brukerskjema.reset();
+        inputFornavn.focus();
+    }
+    
+    brukere.onSnapshot(function (data) {
+        let objekt  =   data.docs;
+        brukertabell.innerHTML = "";
+        for(let x in objekt){
+            let doc = objekt[x].data();
+            brukertabell.innerHTML += `
+            <tr>
+                <td> ${doc.fornavn}</td>
+                <td> ${doc.etternavn}</td>
+            </tr>`
+        }
+    });
+
+</script>
+</body>
+</html>

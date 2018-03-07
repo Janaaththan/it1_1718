@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <style>
+        body{
+            background-image: url("tapas_trail_eventpage_1460x892-1384x846.jpg");
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .inp{
+            background: #007FFF;
+            text-align: center;
+            width: 500px;
+            height: 500px;
+            margin: auto;
+            padding: auto;
+        }
+        .tittel{
+            background: white;
+        }
+        input{
+            text-align: center;
+        }
+        </style>
+</head>
+<body>
+
+<div class="inp">
+    <div class="tittel">
+        <h1>Sett inn rett</h1>
+    </div>
+    <div class="form">
+            <input  type="text" class="rNavn" placeholder="Navn på rett" required><br>
+            <input  type="number" class="rPris" placeholder="Pris" required><br>
+            <select name="" class="rType">
+                <option value="Kjøtt">Kjøtt</option>
+                <option value="Fisk">Fisk</option>
+                <option value="Vegetar">Vegetar</option>
+            </select><br>
+            <input  type="text" class="rBesk" placeholder="Beskrivelse" required><br>
+            <input  type="text" class="rBilde" placeholder="Bildeadresse" required><br>
+            <button class="rKnapp">Legg til Rett</button>
+    </div>
+</div>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-firestore.js"></script>
+<script>
+    firebase.initializeApp({
+        apiKey: "AIzaSyAcsjUL51j03Bot82DhFyXLNDlVJTUxxWw",
+        authDomain: "firestore-daeb3.firebaseapp.com",
+        databaseURL: "https://firestore-daeb3.firebaseio.com",
+        projectId: "firestore-daeb3",
+        storageBucket: "firestore-daeb3.appspot.com",
+        messagingSenderId: "435046273918"
+    });
+
+    let db      =   firebase.firestore();
+    let rNavn   =   document.querySelector(".rNavn");
+    let rPris   =   document.querySelector(".rPris");
+    let rBesk   =   document.querySelector(".rBesk");
+    let rBilde  =   document.querySelector(".rBilde");
+    let rKnapp  =   document.querySelector(".rKnapp");
+    let rType   =   document.querySelector(".rType");
+
+
+    rKnapp.addEventListener('click',function () {
+    db.collection("terra-mat").add({
+        navn:   rNavn.value,
+        pris:   rPris.value,
+        type:   rType.value,
+        besk:   rBesk.value,
+        bilde:  rBilde.value
+        })
+        .then(function(docRef) {
+            console.log("Retten er lagt", docRef.id);
+
+            rNavn.value     = "";
+            rPris.value     = "";
+            rType.value     = "Kjøtt";
+            rBesk.value     = "";
+            rBilde.value    = "";
+        })
+
+        .catch(function(error) {
+            console.error("Feilmelding ved opplastning til databasen: ", error);
+        })
+    });
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Terra</title>
+    <style>
+        body{
+            margin: 0;
+            background: #02C3BD;
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            grid-template-areas:
+                    'head head'
+                    'meny meny'
+                    'aside retter';
+        }
+
+        .head{
+            grid-area: head;
+            background: #03312E;
+            text-align: center;
+        }
+
+        .meny{
+            grid-area: meny;
+            background: #02C3BD;
+            height: 39px;
+        }
+
+        .aside{
+            grid-area: aside;
+            background: #02C3BD;
+        }
+
+        .retter{
+            grid-area: retter;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-gap: 10px;
+            background: white;
+        }
+
+        .rett{
+            background: #1AFFD5;
+            color: white;
+            width: 200px;
+            height: 200px;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            position: relative;
+        }
+
+        .rett .beskrivelse{
+            visibility: hidden;
+            width: 200px;
+            height: 200px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin: 10px;
+            position: absolute;
+            display: inline-block;
+            top: -10px;
+            left: -10px;
+
+
+        }
+
+        .rett:hover .beskrivelse{
+            visibility: visible;
+        }
+
+        img{
+            max-width: 200px;
+            height: 100px;
+        }
+        ul {
+            list-style-type: none;
+            margin: 10px;
+            padding: 0;
+            text-align: center;
+        }
+
+        ul li{
+            display: inline;
+
+        }
+
+        ul a{
+            padding: 10px 40px;
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+            background-color: #02C3BD;
+        }
+
+        ul a:hover{
+            background-color: #037171;
+        }
+    </style>
+</head>
+<body>
+
+<div class="head">
+    <h1>Terra</h1>
+</div>
+<div class="meny">
+    <ul>
+        <li><a href="V_meny.html">lenke 1</a></li>
+        <li><a href="V_meny2.html">lenke 2</a></li>
+        <li><a href="V_meny3.html">lenke 3</a></li>
+    </ul>
+</div>
+<div class="aside"></div>
+<div class="retter" style="background-image: url(Brick-wallaper-For-Background-19.jpg)"></div>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-firestore.js"></script>
+<script>
+    firebase.initializeApp({
+        apiKey: "AIzaSyAcsjUL51j03Bot82DhFyXLNDlVJTUxxWw",
+        authDomain: "firestore-daeb3.firebaseapp.com",
+        databaseURL: "https://firestore-daeb3.firebaseio.com",
+        projectId: "firestore-daeb3",
+        storageBucket: "firestore-daeb3.appspot.com",
+        messagingSenderId: "435046273918"
+    });
+
+    let db      =   firebase.firestore();
+    let retter  =   document.querySelector('.retter');
+    let ref     =   db.collection('terra-mat');
+    let query   =   ref.orderBy('pris', 'asc');
+
+    query.onSnapshot(function (data) {
+        let objekt  =   data.docs;
+        for(let x in objekt){
+            retter.innerHTML += '<div class=rett style="background-image: url(55812_XXX_v5.jpg)">'  +
+                '<span class="beskrivelse">' + objekt[x].data().besk + '<br><br>' + objekt[x].data().type +'</span>' +
+                '<img src=' + objekt[x].data().bilde + '>' +
+                '<h4>' + objekt[x].data().navn + '</h4>' +
+                '<p>' + objekt[x].data().pris + ' kr </p>' +
+                '</div>'
+
+        }
+
+
+
+
+    });
+</script>
+</body>
+</html>
