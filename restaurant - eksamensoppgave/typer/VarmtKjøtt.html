@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Terra</title>
+    <link rel="stylesheet" href="stilark.css">
+</head>
+<body>
+
+<div class="head">
+    <h1><a href="../terra.html">Terra</a></h1>
+</div>
+<div class="meny">
+    <ul>
+        <li style="float: left"><a href="../index.html">Hovedmeny</a></li>
+        <li><a href="../pris.html">Pris</a></li>
+        <li><a href="VarmtKjøtt.html">Varmt Kjøtt</a></li>
+        <li><a href="KaldtKjøtt.html">Kaldt Kjøtt</a></li>
+        <li><a href="VarmSjømat.html">Varm Sjømat</a></li>
+        <li><a href="KaldSjømat.html">Kald Sjømat</a></li>
+        <li><a href="Vegetar.html">Vegetar</a></li>
+    </ul>
+</div>
+<div class="aside"></div>
+<div class="retter" style="background-image: url(../Brick-wallaper-For-Background-19.jpg)"></div>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-firestore.js"></script>
+<script>
+    firebase.initializeApp({
+        apiKey: "AIzaSyAcsjUL51j03Bot82DhFyXLNDlVJTUxxWw",
+        authDomain: "firestore-daeb3.firebaseapp.com",
+        databaseURL: "https://firestore-daeb3.firebaseio.com",
+        projectId: "firestore-daeb3",
+        storageBucket: "firestore-daeb3.appspot.com",
+        messagingSenderId: "435046273918"
+    });
+
+    let db      =   firebase.firestore();
+    let retter  =   document.querySelector('.retter');
+    let ref     =   db.collection('terra-mat');
+    let query   =   ref.where('type', '==', 'Varmt Kjøtt');
+
+    query.onSnapshot(function (data) {
+        let objekt  =   data.docs;
+        for(let x in objekt){
+            retter.innerHTML += '<div class=rett style="background-image: url(../bilder/55812_XXX_v5.jpg)">'  +
+                '<span class="beskrivelse">' + objekt[x].data().besk + '</span>' +
+                '<img src=' + objekt[x].data().bilde + '>' +
+                '<h4>' + objekt[x].data().navn + '</h4>' +
+                '<p>' + objekt[x].data().pris + ' kr </p>'+
+                '</div>'
+
+        }
+    });
+</script>
+</body>
+</html>

@@ -5,7 +5,7 @@
     <title>Register</title>
     <style>
         body{
-            background-image: url("tapas_trail_eventpage_1460x892-1384x846.jpg");
+            background-image: url("bilder/tapas_trail_eventpage_1460x892-1384x846.jpg");
             height: 100%;
             background-position: center;
             background-repeat: no-repeat;
@@ -15,7 +15,7 @@
             background: #007FFF;
             text-align: center;
             width: 500px;
-            height: 500px;
+            height: 1000px;
             margin: auto;
             padding: auto;
         }
@@ -24,6 +24,28 @@
         }
         input{
             text-align: center;
+        }
+        li{
+            text-align: center;
+            list-style: none;
+        }
+        .liste{
+            grid-area: retter;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-gap: 10px;
+            text-align: center;
+        }
+
+        .rett{
+            background: #1AFFD5;
+            color: black;
+            width: 70px;
+            height: 70px;
+            padding: 10px;
+            margin: auto;
+            text-align: center;
+            position: relative;
         }
         </style>
 </head>
@@ -37,13 +59,18 @@
             <input  type="text" class="rNavn" placeholder="Navn på rett" required><br>
             <input  type="number" class="rPris" placeholder="Pris" required><br>
             <select name="" class="rType">
-                <option value="Kjøtt">Kjøtt</option>
-                <option value="Fisk">Fisk</option>
+                <option value="Varmt Kjøtt">Varmt Kjøtt</option>
+                <option value="Kaldt Kjøtt">Kaldt Kjøtt</option>
+                <option value="Varm Sjømat">Varm sjømat</option>
+                <option value="Kald Sjømat">Kald Sjømat</option>
                 <option value="Vegetar">Vegetar</option>
             </select><br>
             <input  type="text" class="rBesk" placeholder="Beskrivelse" required><br>
             <input  type="text" class="rBilde" placeholder="Bildeadresse" required><br>
             <button class="rKnapp">Legg til Rett</button>
+        <br><br><br><br>
+    </div>
+    <div class="liste">
     </div>
 </div>
 
@@ -67,6 +94,8 @@
     let rBilde  =   document.querySelector(".rBilde");
     let rKnapp  =   document.querySelector(".rKnapp");
     let rType   =   document.querySelector(".rType");
+    let listeE  =   document.querySelector(".liste");
+    let ref     =   db.collection("terra-mat");
 
 
     rKnapp.addEventListener('click',function () {
@@ -82,7 +111,7 @@
 
             rNavn.value     = "";
             rPris.value     = "";
-            rType.value     = "Kjøtt";
+            rType.value     = "Varmt Kjøtt";
             rBesk.value     = "";
             rBilde.value    = "";
         })
@@ -91,6 +120,17 @@
             console.error("Feilmelding ved opplastning til databasen: ", error);
         })
     });
+
+    ref.onSnapshot(function(data){
+        listeE.innerHTML = "";
+        let objekt = data.docs;
+        for(let x in objekt)
+            listeE.innerHTML += "<li class='rett'>" + objekt[x].data().navn + "<br><button onclick='slettNavn(\"" + objekt[x].id + "\")'> Slett </button></li>";
+    });
+
+    function slettNavn(id) {
+        db.collection("terra-mat").doc(id).delete();
+    }
 
 
 </script>

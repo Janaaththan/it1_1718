@@ -9,8 +9,6 @@ body{
             'retter';
 }
 
-
-
 .head{
     grid-area: head;
     background: #03312E;
@@ -97,10 +95,8 @@ a{
     color: black;
 
 }
-    
-    
 
-    @media (min-width: 975px) {
+    @media (min-width: 750px) {
         body{
             display: grid;
             grid-template-columns: 1fr 3fr;
@@ -111,7 +107,7 @@ a{
         }
 
         .retter{
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         }
         .rett{
             margin: 10px;
@@ -125,34 +121,5 @@ a{
             display: inline-block;
         }
 
-        .aside{
-            position:fixed;
-            top: 120px;
-        }
-    }
-
-    @media (min-width: 550px){
-        .retter{
-            grid-template-columns: 1fr 1fr;
-        }
-    }
-
-    @media (min-width: 700px){
-        .retter{
-            grid-template-columns: 1fr 1fr 1fr;
-        }
 
     }
-
-    @media (min-width: 1270px){
-        .retter{
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-        }
-
-    }
-
-    @media (min-width: 1440px){
-        .retter{
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        }
-        }
